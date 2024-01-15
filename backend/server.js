@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
-
+const mongoose = require('mongoose')
 const propertyRoutes = require('./routes/properties')
 
 // express app
@@ -19,12 +19,21 @@ app.use((req, res, next) => {
 // property route to connect to properties.js
 app.use('/api/properties', propertyRoutes)
 
-
-
-// listen for requests
-app.listen(process.env.PORT, () => {
-    console.log('listening on port', process.env.PORT)
+//  connect to db
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    // listen for requests (want to do this after being connected to database)
+    app.listen(process.env.PORT, () => {
+        console.log('connected to db & listening on port', process.env.PORT)
+    })
 })
+.catch((error) => {
+    console.log(error)
+})
+
+
+
+
 
 
 // process.env
