@@ -1,4 +1,5 @@
 const express = require('express')
+const Property = require('../models/propertyModel') /*grabbing the Property Schema info and pulling into thie file */
 
 // creates an instance of the property router
 const router = express.Router()
@@ -18,8 +19,15 @@ router.get('/:id', (req, res) => {
 
 
 // POST a new property
-router.post('/', (req, res) => {
-    res.json({mssg: "POST a new property"})
+router.post('/', async (req, res) => {
+    const {address, price, bedrooms} = req.body /* destruction / extracting */
+
+    try {
+        const property = await Property.create({address, price, bedrooms}) /* trying to create a new property */
+        res.status(200).json(property)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
 })
 
 // DELETE a single property
