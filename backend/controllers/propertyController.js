@@ -8,7 +8,7 @@ const getAllProperties = async (req, res) => {
 }
 
 // get a single property
-const getAProperty = async (req, res) => {
+const getProperty = async (req, res) => {
     const {id} = req.params /* grabbing the id using destructuring - all route parameters are stored on params property and will get us the id of property */
 
     const property = await Property.findById(id)
@@ -44,5 +44,5 @@ const createProperty = async (req, res) => {
 module.exports = {
     createProperty,
     getAllProperties,
-    getAProperty
+    getProperty
 }

@@ -1,6 +1,6 @@
 const express = require('express')
 
-const { createProperty, getAllProperties, getAProperty } = require('../controllers/propertyController')
+const { createProperty, getAllProperties, getProperty } = require('../controllers/propertyController')
 
 // creates an instance of the property router
 const router = express.Router()
@@ -12,7 +12,7 @@ router.get('/', getAllProperties)
 
 
 // GET a single property
-router.get('/:id', getAProperty)
+router.get('/:id', getProperty)
 
 
 // POST a new property
