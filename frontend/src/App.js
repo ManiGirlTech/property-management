@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // pages & components
 import Home from './pages/Home'
@@ -11,14 +11,10 @@ function App() {
           <Routes>
             <Route 
               path="/"
-              element={Home}
-            
+              element={<Home />}
             />
           </Routes>
         </div>
-
-
-
       </BrowserRouter>
     </div>
   );
