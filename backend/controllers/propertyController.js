@@ -1,4 +1,5 @@
 const Property = require('../models/propertyModel') /*grabbing the Property Schema info and pulling into thie file */
+const mongoose = require('mongoose');
 
 // get all properties
 const getAllProperties = async (req, res) => {
@@ -9,7 +10,12 @@ const getAllProperties = async (req, res) => {
 
 // get a single property
 const getAProperty = async (req, res) => {
-    const {id} = req.params /* grabbing the id using destructuring - all route parameters are stored on params property and will get us the id of property */
+    const { id } = req.params /* grabbing the id using destructuring - all route parameters are stored on params property and will get us the id of property */
+
+    // if not a valid mongoose id, then return error message
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'Not a valid property'})
+    }
 
     const property = await Property.findById(id)
 
@@ -34,6 +40,24 @@ const createProperty = async (req, res) => {
 }
 
 // delete a property
+const deleteProperty = async (req, res) => {
+    const { id } = req.params
+
+    // if not a valid mongoose id, then return error message
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'Not a valid property'})
+    }
+
+    const property = await Property.findOneAndDelete({_id: id}) /*find _id in mongodb and if equal to id in code, delet */
+
+    // if not a valid property, then return error
+    if (!property) {
+        return res.error(400).json({error: 'Property not found' })
+    }
+
+    // if valid property then delete property
+    res.status(200).json(property)
+}
 
 
 // update a property
@@ -44,5 +68,6 @@ const createProperty = async (req, res) => {
 module.exports = {
     createProperty,
     getAllProperties,
-    getAProperty
+    getAProperty,
+    deleteProperty
 }
