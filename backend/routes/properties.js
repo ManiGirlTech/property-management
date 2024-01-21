@@ -1,6 +1,6 @@
 const express = require('express')
 
-const { createProperty, getAllProperties, getProperty } = require('../controllers/propertyController')
+const { createProperty, getAllProperties, getAProperty } = require('../controllers/propertyController')
 
 // creates an instance of the property router
 const router = express.Router()
@@ -12,7 +12,7 @@ router.get('/', getAllProperties)
 
 
 // GET a single property
-router.get('/:id', getProperty)
+router.get('/:id', getAProperty)
 
 
 // POST a new property
@@ -27,5 +27,7 @@ router.patch('/:id', (req, res) => {
     res.json({mssg: "UPDATE a property"})
 })
 
-// export rout  er
+// export router
 module.exports = router
+
+
