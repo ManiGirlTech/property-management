@@ -61,7 +61,25 @@ const deleteProperty = async (req, res) => {
 
 
 // update a property
+const updateProperty = async (req, res) => {
+    const { id } = req.params
 
+    // if not a valid mongoose id, then return error message
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'Not a valid property'})
+    }
+    
+    // setting two arguments for updating a property  the data that was sent through - way we get that info is by using - spread the properties of the object and place into the new object ...req.body
+    const property = await Property.findOneAndUpdate({ _id: id }, { ...req.body })
+
+    if (!property) {
+        return res.error(400).json({error: 'Property not found' })
+    }
+
+    // if valid property then delete property
+    res.status(200).json(property)
+
+}
 
 
 
@@ -69,5 +87,6 @@ module.exports = {
     createProperty,
     getAllProperties,
     getAProperty,
-    deleteProperty
+    deleteProperty, 
+    updateProperty
 }
