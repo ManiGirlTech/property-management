@@ -6,7 +6,7 @@ const Home = () => {
     useEffect(() => {
         const fetchProperties = async () => {
             // fetch properties from property api
-            const response = await fetch('http://localhost:4000/api/properties')
+            const response = await fetch('/api/properties')
             // passes the json response which is the data from properties controller - becomes an array of objects where each object represents a property
             const json = await response.json()
             
