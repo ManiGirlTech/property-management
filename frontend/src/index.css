@@ -47,3 +47,13 @@ header a {
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
+.property-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.property-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
