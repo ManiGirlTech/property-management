@@ -29,6 +29,7 @@ const Home = () => {
        <div className="home">
         <div className="properties">
             {properties && properties.map((property) => (
+                // <p key={property._id}{property.address}></p>
                 <PropertyDetails key={property._id} property={property} />      
             ))}
         </div>
