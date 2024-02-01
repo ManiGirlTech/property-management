@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logo from '../images/house-png-181.png'
 
 const Navbar = () => {
     return (
@@ -6,6 +7,7 @@ const Navbar = () => {
             <div className="container">
                 <Link to='/'>
                     <h1>Property App</h1>
+                    <img src={logo} alt="app logo of house" />
                 </Link>
 
             </div>
