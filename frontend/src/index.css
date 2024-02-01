@@ -68,3 +68,11 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+
+
+/* logo */
+.logo {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
