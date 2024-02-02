@@ -32,6 +32,13 @@ header a {
   margin: 0 auto;
 }
 
+/* logo */
+.logo {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
 
 /* homepage */
 .home{
@@ -70,9 +77,3 @@ header a {
 }
 
 
-/* logo */
-.logo {
-  width: 100px;
-  height: 100px;
-  display: block;
-}

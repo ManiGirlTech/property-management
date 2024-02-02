@@ -7,8 +7,8 @@ const Navbar = () => {
             <div className="container">
                 <Link to='/'>
                     <h1>Property App</h1>
-                    <img className="logo" src={logo} alt="app logo of house" />
                 </Link>
+                <img className="logo" src={logo} alt="app logo of house" />
 
             </div>
         </header>
