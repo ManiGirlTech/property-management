@@ -32,7 +32,12 @@ header a {
   margin: 0 auto;
 }
 
+
+/* NAVBAR */
 /* logo */
+h1 {
+  color: #69b3ca;
+}
 .logo {
   width: 10%;
   height: 10%;
