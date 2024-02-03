@@ -58,6 +58,7 @@ const PropertyForm = () => {
             />
 
             <button>Add Property</button>
+            { error && <div className="error">{error}</div>}
         </form>
     )
 }
