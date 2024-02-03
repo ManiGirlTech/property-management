@@ -21,9 +21,12 @@ const PropertyForm = () => {
         const json = await repsonse.json()
 
         if (!repsonse.ok) {
-            ReadableStreamDefaultController(json.error)
+            setError(json.error)
         }
         if (Response.ok) {
+            setAddress('')
+            setPrice('')
+            setBedrooms('')
             setError(null)
             console.log("new property added successfully")
         }
