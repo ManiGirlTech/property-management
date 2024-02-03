@@ -5,8 +5,23 @@ const PropertyForm = () => {
     const [price, setPrice] = useState('')
     const [bedrooms, setBedrooms] = useState('')
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const property = { address, price, bedrooms}
+
+        const repsonse = await fetch('/api/properties', {
+            method: 'POST',
+            body: JSON.stringify(property),
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        })
+        const json = await repsonse.json()
+    }
+
     return (
-        <form className="create">
+        <form className="create" onSubmit={handleSubmit}>
             <h3>Add a New Property</h3>
 
             <label>Property Address</label>
