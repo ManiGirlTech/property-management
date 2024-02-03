@@ -61,3 +61,5 @@ const PropertyForm = () => {
         </form>
     )
 }
+
+export default PropertyForm

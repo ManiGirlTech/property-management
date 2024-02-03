@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 // components
 import PropertyDetails from "../components/PropertyDetails"
+import PropertyForm from "../components/PropertyForm"
 
 const Home = () => {
 
@@ -33,6 +34,7 @@ const Home = () => {
                 <PropertyDetails key={property._id} property={property} />      
             ))}
         </div>
+        <PropertyForm />
        </div>
     )
 }
