@@ -4,6 +4,7 @@ const PropertyForm = () => {
     const [address, setAddress] = useState('')
     const [price, setPrice] = useState('')
     const [bedrooms, setBedrooms] = useState('')
+     const [error, setError] = useState(null)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -18,6 +19,14 @@ const PropertyForm = () => {
             }
         })
         const json = await repsonse.json()
+
+        if (!repsonse.ok) {
+            ReadableStreamDefaultController(json.error)
+        }
+        if (Response.ok) {
+            setError(null)
+            console.log("new property added successfully")
+        }
     }
 
     return (
