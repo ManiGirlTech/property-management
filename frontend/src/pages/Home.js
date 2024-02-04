@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { usePropertiesContext } from "../hooks/usePropertiesContext"
 
 // components
 import PropertyDetails from "../components/PropertyDetails"
 import PropertyForm from "../components/PropertyForm"
 
-const Home = () => {
 
-    const [ properties, setProperties] = useState(null)
+
+const Home = () => {
+    const {properties, dispatch} = usePropertiesContext()
+
+
     useEffect(() => {
         const fetchProperties = async () => {
             // fetch properties from property api
@@ -17,7 +21,7 @@ const Home = () => {
 
             // if the repsonse is ok, return
             if (response.ok) {
-                setProperties(json)
+                dispatch({type: 'SET_PROPERTIES', paylod: json})
             }
 
         }

@@ -25,7 +25,7 @@ export const PropertiesContextProvider = ({ children }) => {
     // dispatch({type: 'SET_PROPERTIES', payload: [{}, {}] })
 
     return (
-        <PropertiesContext.Provider value={{state, dispatch}}>
+        <PropertiesContext.Provider value={{...state, dispatch}}>
         { children }
         </PropertiesContext.Provider>
     )
