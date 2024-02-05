@@ -2,7 +2,7 @@ import { useState } from "react"
 import { usePropertiesContext } from "../hooks/usePropertiesContext"
 
 const PropertyForm = () => {
-    const {dispatch} = usePropertiesContext
+    const {dispatch} = usePropertiesContext()
     const [address, setAddress] = useState('')
     const [price, setPrice] = useState('')
     const [bedrooms, setBedrooms] = useState('')
@@ -31,7 +31,7 @@ const PropertyForm = () => {
             setBedrooms('')
             setError(null)
             console.log("new property added successfully")
-            dispatch({type: "CREATE_PROPERTY", payload: json})
+            dispatch({type: 'CREATE_PROPERTY', payload: json})
         }
     }
 

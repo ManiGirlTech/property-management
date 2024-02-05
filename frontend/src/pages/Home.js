@@ -9,7 +9,7 @@ import PropertyForm from "../components/PropertyForm"
 
 const Home = () => {
     const {properties, dispatch} = usePropertiesContext()
-
+ 
 
     useEffect(() => {
         const fetchProperties = async () => {
@@ -21,7 +21,7 @@ const Home = () => {
 
             // if the repsonse is ok, return
             if (response.ok) {
-                dispatch({type: 'SET_PROPERTIES', paylod: json})
+                dispatch({type: 'SET_PROPERTIES', payload: json})
             }
 
         }
