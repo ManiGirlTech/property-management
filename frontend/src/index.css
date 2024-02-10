@@ -82,6 +82,9 @@ h1 {
 }
 
 /* create property form */
+.newProp {
+  color: #646464;
+}
 label, input {
   display: block;
 }

@@ -37,7 +37,7 @@ const PropertyForm = () => {
 
     return (
         <form className="create" onSubmit={handleSubmit}>
-            <h3>Add a New Property</h3>
+            <h3 className="newProp">Add a New Property</h3>
 
             <label>Property Address</label>
             <input 
